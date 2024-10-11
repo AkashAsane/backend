@@ -8,7 +8,7 @@ const userRoutes=require('./routes/userroutes')
 
 const passport=require('./config/passportconfig')
 const app=express()
-const PORT=process.env.PORT
+const PORT=process.env.PORT || 8082
 
 app.use(cors());
 app.use(bodyParser.json());
