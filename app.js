@@ -1,0 +1,27 @@
+require('dotenv').config()
+const express=require('express')
+const bodyParser = require('body-parser'); 
+const db=require('./config/db')
+const cors=require('cors')
+const userRoutes=require('./routes/userroutes')
+
+
+const passport=require('./config/passportconfig')
+const app=express()
+const PORT=process.env.PORT
+
+app.use(cors());
+app.use(bodyParser.json());
+app.use(express.json())
+
+
+app.use(passport.initialize())
+const local=passport.authenticate('local',{session:false})
+
+app.use('/api/auth',userRoutes)
+
+
+
+app.listen(PORT,()=>{
+    console.log(`app started on port ${PORT}`)
+})
