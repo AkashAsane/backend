@@ -6,8 +6,7 @@ exports.createBlog = async (req, res) => {
     const blog = new Blog({
         title,
         content,
-        author: req.user.id,
-        location: req.user.location,
+      
     });
 
     try {

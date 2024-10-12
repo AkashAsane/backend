@@ -3,7 +3,7 @@ const { createBlog, getBlogsByLocation } = require('../controllers/blogcontrolle
 const auth = require('../middlewares/auth')
 const router = express.Router();
 
-router.post('/',  createBlog);
+router.post('/', auth, createBlog);
 router.get('/', getBlogsByLocation);
 
 module.exports = router;
