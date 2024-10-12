@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const db=require('./config/db')
 const cors=require('cors')
 const userRoutes=require('./routes/userroutes')
+const blogRoutes=require('./routes/blogroutes')
 
 
 const passport=require('./config/passportconfig')
@@ -19,6 +20,7 @@ app.use(passport.initialize())
 const local=passport.authenticate('local',{session:false})
 
 app.use('/api/auth',userRoutes)
+app.use('/api/blog',blogRoutes)
 
 
 
